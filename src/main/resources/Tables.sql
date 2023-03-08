@@ -1,11 +1,11 @@
 --h2 is typically used to setup a test database, not a prod database.
 --first, drop your tables (to reset your database for testing)
 --then create your tables
-DROP TABLE if EXISTS questions;
+DROP TABLE if EXISTS question;
 DROP TABLE if EXISTS answer;
 
 --table to store our questions
-CREATE TABLE questions (question_id int PRIMARY KEY,
+CREATE TABLE question (question_id int PRIMARY KEY,
     question_text VARCHAR(255),
     answer_id int,
     FOREIGN KEY(answer_id) REFERENCES answer(answer_id)
