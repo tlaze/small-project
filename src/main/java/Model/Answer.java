@@ -6,8 +6,8 @@ public class Answer {
     public Boolean is_correct;
     public String choice_list;
 
-    public Answer(){
-
+    public Answer(int answer_id){
+        this.answer_id = answer_id;
     }
     public Answer(int answer_id, int question_id, boolean is_correct, String choice_list){
         this.answer_id = answer_id;
