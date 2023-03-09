@@ -1,5 +1,9 @@
 import Controller.QuizGameController;
 import io.javalin.Javalin;
+import Util.ConnectionSingleton;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Application {
     public static void main(String[] args) {
 //        this line is just for testing that your tables get set up correctly
@@ -9,4 +13,6 @@ public class Application {
         Javalin app = controller.startAPI();
         app.start(8080);
     }
+
+
 }
