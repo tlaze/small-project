@@ -1,25 +1,31 @@
 package Controller;
 import io.javalin.Javalin;
+import io.javalin.http.Context;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import Model.Question;
+import Service.QuestionService;
+import java.util.List;
+import java.util.ArrayList;
 
 public class QuizGameController {
-
-//    QuestionService question;
-//    AnswerService answer;
-//    public QuizGameController(){
-//        this.QuestionService = new QuestionService();
-//        this.AnswerService = new AnswerService();
-//    }
+    QuestionService questionService;
+//    AnswerService answerService;
+    public QuizGameController(){
+        this.questionService = new QuestionService();
+//        this.answerService = new AnswerService();
+    }
 
     public Javalin startAPI(){
         Javalin app = Javalin.create();
-//        app.get("/questions", this::getAllQuestionsHandler);
+        app.get("/questions", this::getAllQuestionsHandler);
         return app;
     }
 
-//    public void getAllQuestionsHandler(Context context) throws JsonProcessingException{
-//        List<Question> questions = questionService.getAllMesages();
-//        context.json(messages);
-//        context.status(200);
-//    }
+    public void getAllQuestionsHandler(Context context) throws JsonProcessingException{
+        List<Question> questions = questionService.getAllQuestions();
+        context.json(questions);
+        context.status(200);
+    }
 }
 
