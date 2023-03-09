@@ -29,3 +29,5 @@ public class QuizGameController {
     }
 }
 
+// pk is unique. answers belong to a question.
+//something in question
