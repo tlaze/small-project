@@ -8,6 +8,5 @@ public class Application {
         QuizGameController controller = new QuizGameController();
         Javalin app = controller.startAPI();
         app.start(8080);
-
     }
 }
