@@ -6,26 +6,18 @@ DROP TABLE if EXISTS answer;
 
 --table to store our questions
 CREATE TABLE question (
-    question_id int NOT NULL,
-    question_text varchar(255) NOT NULL,
-    answer_id int
---.    FOREIGN KEY(answer_id) REFERENCES answer(answer_id)
+    question_id int,
+    question_text varchar(255),
+    PRIMARY KEY (question_id)
     );
 
  --table to store our choices from our questions pool
 CREATE TABLE answer (
-   answer_id int NOT NULL,
-   choice_list varchar(255) NOT NULL,
-   correct_answer bit NOT NULL,
-   FOREIGN KEY (answer_id) REFERENCES question(question_id)
+   answer_id int,
+   choice_list varchar(255),
+   correct_answer bit,
+   FOREIGN KEY (answer_id) REFERENCES question(question_id) ON DELETE CASCADE
     );
-
-
-    PRIMARY KEY (question_id)
-    );
-
-
-
 
 INSERT INTO question(question_id, question_text) VALUES (1, 'question1');
 INSERT INTO question(question_id, question_text) VALUES (2, 'question2');
