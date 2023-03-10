@@ -56,7 +56,6 @@ public class QuizGameController {
         }
         return getAnswers;
     }
-
 }
 
 // pk is unique. answers belong to a question.

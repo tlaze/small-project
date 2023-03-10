@@ -47,9 +47,9 @@ public class Answer {
 //    }
     @Override
     public String toString(){
-        return "Answer{"+
-                "answer_id=" +answer_id +
-                ", choice_list=" + choice_list +
-                ", correct_answer=" + correct_answer +'\'';
+        return "Answer{" +
+                "answer_id= " +answer_id +
+                " choice_list=" + choice_list +
+                " correct_answer= " + correct_answer +'\''+'}';
     }
 }

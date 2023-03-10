@@ -3,12 +3,10 @@ package Model;
 public class Question {
     public int question_id;
     public String question_text;
-    public int answer_id;
     //retriving all questions
-    public Question(int question_id, String question_text, int answer_id){
+    public Question(int question_id, String question_text){
         this.question_id = question_id;
         this.question_text = question_text;
-        this.answer_id = answer_id;
     }
 //    public void setQuestionByID(int question_id){
 //        this.question_id = question_id;
@@ -42,8 +40,7 @@ public class Question {
     public String toString(){
         return "Question{ " +
                 "question_id= " +question_id +
-                " question_text= " + question_text +
-                "answer_id= "  + answer_id + '\''+'}';
+                " question_text= " + question_text + '\''+'}';
     }
 
 }

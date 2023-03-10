@@ -1,8 +1,6 @@
 package DAO;
 import Model.Answer;
 import java.sql.*;
-
-import Model.Question;
 import Util.ConnectionSingleton;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,5 +60,4 @@ public class AnswerDAO {
         }
         return null;
     }
-
 }
