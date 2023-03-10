@@ -1,12 +1,14 @@
 package Controller;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
-import io.javalin.http.Context;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import Model.Question;
 import Model.Answer;
 import Service.QuestionService;
 import Service.AnswerService;
+import io.javalin.http.Context;
+import javax.naming.Context;
 import java.util.List;
 
 public class QuizGameController {
@@ -24,6 +26,7 @@ public class QuizGameController {
         app.get("questions/{question_id}", this::getQuestionByIDHandler);
         app.get("answers/{answer_id}", this::getAnswersByIDHandler);
         app.put("/questions/{question_id}", this::updateQuestionByIDHandler);
+        app.delete("/questions/{question_id}", this::getDeleteQuestionByIDHandler);
         return app;
     }
 
@@ -73,7 +76,24 @@ public class QuizGameController {
         else{
             context.json(mapper.writeValueAsString(updateQuestion));
             context.status(200);
+          }
+        }
+     }
+
+    public void getDeleteQuestionByIDHandler(Context context) throws JsonProcessingException{
+        ObjectMapper objectMapper = new ObjectMapper();
+        int question_id = Integer.parseInt(Context.pathParam("question_id"));
+        Question question = questionService.deleteQuestionID(question_id);
+
+        if(question!=null){
+            context.json(objectMapper.writeValueAsString(question));
+            context.status(200);
+        }
+        else{
+            context.status(400);
         }
     }
 }
 
+// pk is unique. answers belong to a question.
+//something in question
