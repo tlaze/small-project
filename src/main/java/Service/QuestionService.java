@@ -5,7 +5,6 @@ import Model.Question;
 
 public class QuestionService {
     public QuestionDAO questionDAO;
-
     public QuestionService(){
         questionDAO = new QuestionDAO();
     }
@@ -17,6 +16,9 @@ public class QuestionService {
     }
     public Question getQuestionByID(int question){
         return questionDAO.getQuestionByID(question);
+    }
+    public Question updateQuestionByID(int questionID, Question question){
+        return questionDAO.updateQuestionByID(questionID, question);
     }
 
 }

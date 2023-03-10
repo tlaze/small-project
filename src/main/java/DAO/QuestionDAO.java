@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionDAO {
-
     public List<Question> getAllQuestions(){
 
         Connection conn = ConnectionSingleton.getConnection();
@@ -49,6 +48,25 @@ public class QuestionDAO {
                 );
                 return questionByID;
             }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Question updateQuestionByID(int questionID, Question question){
+        Connection connection = ConnectionSingleton.getConnection();
+
+        try{
+            String sql = "UPDATE question SET question_text = ? WHERE question_id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1, question.getQuestion_text());
+            ps.setInt(2, questionID);
+            ps.executeUpdate();
+
+            return getQuestionByID(questionID);
         }
         catch(SQLException e){
             System.out.println(e.getMessage());
