@@ -9,28 +9,9 @@ public class Question {
         this.question_id = question_id;
         this.question_text = question_text;
     }
-//    public void setQuestionByID(int question_id){
-//        this.question_id = question_id;
-//    }
     public String getQuestion_text(){
         return question_text;
     }
-//    public int getQuestion_id(){
-//        return question_id;
-//    }
-//    public void setQuestion_id(int question_id){
-//        this.question_id = question_id;
-//    }
-//    public void setQuestion_text(String question_text){
-//        this.question_text = question_text;
-//    }
-//    public int getAnswer_id(){
-//        return answer_id;
-//    }
-//    public void setAnswer_id(int answer_id){
-//        this.answer_id = answer_id;
-//    }
-
     @Override
     public boolean equals(Object o){
         if(this==o){
