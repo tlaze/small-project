@@ -15,4 +15,8 @@ public class QuestionService {
     public List<Question> getAllQuestions(){
         return questionDAO.getAllQuestions();
     }
+    public Question getQuestionByID(int question){
+        return questionDAO.getQuestionByID(question);
+    }
+
 }

@@ -3,9 +3,9 @@ package Model;
 public class Answer {
     public int answer_id;
     public String choice_list;
-    public int correct_answer;
+    public boolean correct_answer;
 
-    public Answer(int answer_id, String choice_list, int correct_answer){
+    public Answer(int answer_id, String choice_list, boolean correct_answer){
         this.answer_id = answer_id;
         this.choice_list = choice_list;
         this.correct_answer = correct_answer;
