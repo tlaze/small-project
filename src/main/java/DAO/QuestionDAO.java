@@ -32,4 +32,29 @@ public class QuestionDAO {
         }
         return questions;
     }
+    public Question getQuestionByID(int question){
+        Connection connection = ConnectionSingleton.getConnection();
+
+        try{
+            String sql = "SELECT * FROM question WHERE question_id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, question);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Question questionByID = new Question(
+                        rs.getInt("question_id"),
+                        rs.getString("question_text"),
+                        rs.getInt("answer_id")
+                );
+                return questionByID;
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }
