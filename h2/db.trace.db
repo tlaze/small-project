@@ -1893,3 +1893,323 @@ CREATE TABLE question (
 2023-03-09 19:22:24 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found (this database is empty); SQL statement:
 SELECT * FROM question [42104-214]
+2023-03-09 19:50:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+
+
+--table to store our questions
+CREATE TABLE question (
+    question_id int NOT NULL,
+    question_text varchar(255) NOT NULL,
+    answer_id int,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (question_id) [42102-214]
+2023-03-09 19:50:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found (this database is empty); SQL statement:
+SELECT * FROM question [42104-214]
+2023-03-09 19:56:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+
+
+--table to store our questions
+CREATE TABLE question (
+    question_id int NOT NULL,
+    question_text varchar(255) NOT NULL,
+    answer_id int,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (question_id) [42102-214]
+2023-03-09 19:56:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found (this database is empty); SQL statement:
+SELECT * FROM question [42104-214]
+2023-03-09 19:58:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+
+
+--table to store our questions
+CREATE TABLE question (
+    question_id int NOT NULL,
+    question_text varchar(255) NOT NULL,
+    answer_id int,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (question_id) [42102-214]
+2023-03-09 19:58:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found (this database is empty); SQL statement:
+SELECT * FROM question [42104-214]
+2023-03-09 19:59:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found (this database is empty); SQL statement:
+SELECT * FROM answer [42104-214]
+2023-03-09 19:59:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found (this database is empty); SQL statement:
+SELECT * FROM answer [42104-214]
+2023-03-09 19:59:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found (this database is empty); SQL statement:
+SELECT * FROM answer [42104-214]
+2023-03-09 19:59:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+
+
+--table to store our questions
+CREATE TABLE question (
+    question_id int NOT NULL,
+    question_text varchar(255) NOT NULL,
+    answer_id int,
+    PRIMARY KEY (question_id),
+    FOREIGN KEY (question_id) [42102-214]
+2023-03-09 19:59:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found (this database is empty); SQL statement:
+SELECT * FROM answer [42104-214]
+2023-03-09 20:04:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a--table to store our questions\000d\000aCREATE TABLE question (\000d\000a    question_id int NOT NULL,\000d\000a    question_text varchar(255) NOT NULL,\000d\000a    answer_id int,\000d\000a    PRIMARY KEY (question_id),\000d\000a    [*])"; expected "identifier"; SQL statement:
+
+
+--table to store our questions
+CREATE TABLE question (
+    question_id int NOT NULL,
+    question_text varchar(255) NOT NULL,
+    answer_id int,
+    PRIMARY KEY (question_id),
+    ) [42001-214]
+2023-03-09 20:04:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "QUESTION" not found (this database is empty); SQL statement:
+SELECT * FROM question [42104-214]
+2023-03-09 20:05:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "PRIMARY KEY | UNIQUE (ANSWER_ID)" not found; SQL statement:
+
+
+CREATE TABLE answer (
+   answer_id int NOT NULL,
+   choice_list varchar(255) NOT NULL,
+   correct_answer int,
+   FOREIGN KEY (correct_answer) REFERENCES question(answer_id)
+  [90057-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:258)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at DAO.QuestionDAO.getAllQuestions(QuestionDAO.java:12)
+	at Service.QuestionService.getAllQuestions(QuestionService.java:16)
+	at Controller.QuizGameController.getAllQuestionsHandler(QuizGameController.java:27)
+	at io.javalin.routing.HandlerEntry.handle(HandlerEntry.kt:19)
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda-8$lambda-6$lambda-5(DefaultTasks.kt:38)
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:88)
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:53)
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:41)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:57)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1304)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:936)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1080)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-09 20:07:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "QUESTION" because "CONSTRAINT_7" depends on it; SQL statement:
+--h2 is typically used to set [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at DAO.AnswerDAO.getAllAnswers(AnswerDAO.java:11)
+	at Service.AnswerService.getAllAnswers(AnswerService.java:15)
+	at Controller.QuizGameController.getAllAnswersHandler(QuizGameController.java:33)
+	at io.javalin.routing.HandlerEntry.handle(HandlerEntry.kt:19)
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda-8$lambda-6$lambda-5(DefaultTasks.kt:38)
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:88)
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:53)
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:41)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:57)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1304)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:936)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1080)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-09 20:08:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "QUESTION" because "CONSTRAINT_7" depends on it; SQL statement:
+--h2 is typically used to set [90107-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:97)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:121)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at DAO.QuestionDAO.getAllQuestions(QuestionDAO.java:12)
+	at Service.QuestionService.getAllQuestions(QuestionService.java:16)
+	at Controller.QuizGameController.getAllQuestionsHandler(QuizGameController.java:27)
+	at io.javalin.routing.HandlerEntry.handle(HandlerEntry.kt:19)
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda-8$lambda-6$lambda-5(DefaultTasks.kt:38)
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:88)
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:53)
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:41)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:57)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1304)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:936)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1080)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-09 20:11:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "PRIMARY KEY | UNIQUE (ANSWER_ID)" not found; SQL statement:
+
+
+CREATE TABLE answer (
+   answer_id int NOT NULL,
+   choice_list varchar(255) NOT NULL,
+   correct_answer int,
+   FOREIGN KEY (correct_answer) REFERENCES question(answer_id)
+  [90057-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:258)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at DAO.AnswerDAO.getAllAnswers(AnswerDAO.java:11)
+	at Service.AnswerService.getAllAnswers(AnswerService.java:15)
+	at Controller.QuizGameController.getAllAnswersHandler(QuizGameController.java:33)
+	at io.javalin.routing.HandlerEntry.handle(HandlerEntry.kt:19)
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda-8$lambda-6$lambda-5(DefaultTasks.kt:38)
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:88)
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:53)
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:41)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1570)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:57)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1543)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1304)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$0(HttpChannel.java:505)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:762)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:497)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:936)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1080)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-09 20:11:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+SELECT * FROM answer [42102-214]
+2023-03-09 20:12:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000aCREATE TABLE answer (\000d\000a   answer_id int NOT NULL,\000d\000a   choice_list varchar(255) NOT NULL,\000d\000a   correct_answer int,\000d\000a    [*])"; expected "identifier"; SQL statement:
+
+
+CREATE TABLE answer (
+   answer_id int NOT NULL,
+   choice_list varchar(255) NOT NULL,
+   correct_answer int,
+    ) [42001-214]
+2023-03-09 20:12:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
+SELECT * FROM answer [42102-214]
