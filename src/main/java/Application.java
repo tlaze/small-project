@@ -1,8 +1,5 @@
 import Controller.QuizGameController;
 import io.javalin.Javalin;
-import Util.ConnectionSingleton;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Application {
     public static void main(String[] args) {

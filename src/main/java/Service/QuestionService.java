@@ -1,12 +1,12 @@
 package Service;
 import java.util.List;
+
 import java.util.Scanner;
 
 import DAO.QuestionDAO;
 import Model.Question;
 
 public class QuestionService {
-
     public QuestionDAO questionDAO;
 
     public QuestionService(){
@@ -18,6 +18,7 @@ public class QuestionService {
     public List<Question> getAllQuestions(){
         return questionDAO.getAllQuestions();
     }
+
     public Question getQuestionByID (int question_id){
         return questionDAO.getQuestionByID(question_id);
     }
@@ -62,4 +63,9 @@ public class QuestionService {
 
 
     }
+
+    public Question getQuestionByID(int question){
+        return questionDAO.getQuestionByID(question);
+    }
+
 }
