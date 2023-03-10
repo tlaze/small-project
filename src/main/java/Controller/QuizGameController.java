@@ -21,6 +21,7 @@ public class QuizGameController {
         app.get("/questions", this::getAllQuestionsHandler);
         app.get("/answers", this::getAllAnswersHandler);
         app.get("questions/{question_id}", this::getQuestionByIDHandler);
+        app.get("answers/{answer_id}", this::getAnswersByIDHandler);
         return app;
     }
 
@@ -35,7 +36,6 @@ public class QuizGameController {
         context.json(answers);
         context.status(200);
     }
-
     public void getQuestionByIDHandler(Context context){
         int questionID = Integer.parseInt(context.pathParam("question_id"));
         Question getQuestion = questionService.getQuestionByID(questionID);
@@ -45,5 +45,17 @@ public class QuizGameController {
             context.status(200);
         }
     }
+    public List<Answer> getAnswersByIDHandler(Context context){
+        int answerID = Integer.parseInt(context.pathParam("answer_id"));
+
+        List<Answer> getAnswers = answerService.getAnswersByID(answerID);
+
+        if(getAnswers != null){
+            context.json(getAnswers);
+            context.status(200);
+        }
+        return getAnswers;
+    }
+
 }
 

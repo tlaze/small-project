@@ -8,7 +8,7 @@ DROP TABLE if EXISTS answer;
 CREATE TABLE question (
     question_id int NOT NULL,
     question_text varchar(255) NOT NULL,
-    answer_id int,
+    answer_id BIT,
     PRIMARY KEY (question_id)
     );
 
@@ -22,16 +22,22 @@ CREATE TABLE answer (
 
 INSERT INTO question(question_id, question_text, answer_id) VALUES (1, 'question1', 1);
 INSERT INTO question(question_id, question_text, answer_id) VALUES (2, 'question2', 1);
+INSERT INTO question(question_id, question_text, answer_id) VALUES (3, 'question3', 1);
 
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer1', 0);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer2', 0);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer3', 0);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer4', 1);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer1', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer2', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer3', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'answer4', true);
 
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer1', 0);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer2', 1);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer3', 0);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer4', 0);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer1', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer2', true);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer3', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'answer4', false);
+
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer1', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer2', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer3', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer4', true);
 
 -- get all questions
 --  delete all questions if  answered

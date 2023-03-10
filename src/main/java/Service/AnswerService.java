@@ -14,4 +14,7 @@ public class AnswerService {
     public List<Answer> getAllAnswers(){
         return answerDAO.getAllAnswers();
     }
+    public List<Answer> getAnswersByID(int answers){
+        return answerDAO.getAnswersByID(answers);
+    }
 }
