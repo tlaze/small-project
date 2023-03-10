@@ -2213,3 +2213,12 @@ CREATE TABLE answer (
 2023-03-09 20:12:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ANSWER" not found; SQL statement:
 SELECT * FROM answer [42102-214]
+2023-03-09 20:26:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000aCREATE TABLE answer (\000d\000a   answer_id int NOT NULL,\000d\000a   choice_list varchar(255) NOT NULL,\000d\000a   correct_answer int,\000d\000a   FOREIGN KEY (ANSWER_ID) REFERENCES question(question_id)[*]"; expected "INDEX, ON, NOT DEFERRABLE, DEFERRABLE, NOCHECK, CHECK, ,, )"; SQL statement:
+
+
+CREATE TABLE answer (
+   answer_id int NOT NULL,
+   choice_list varchar(255) NOT NULL,
+   correct_answer int,
+   FOREIGN KEY (ANSWER_ID) REFERENCES question(question_id) [42001-214]

@@ -15,7 +15,8 @@ CREATE TABLE question (
 CREATE TABLE answer (
    answer_id int NOT NULL,
    choice_list varchar(255) NOT NULL,
-   correct_answer int
+   correct_answer int,
+   FOREIGN KEY (ANSWER_ID) REFERENCES question(question_id)
     );
 
 

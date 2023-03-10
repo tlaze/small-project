@@ -4,20 +4,13 @@ public class Question {
     public int question_id;
     public String question_text;
     public int answer_id;
-    public Question(){
-
-    }
     //retriving all questions
     public Question(int question_id, String question_text, int answer_id){
         this.question_id = question_id;
         this.question_text = question_text;
         this.answer_id = answer_id;
     }
-
-//    public int getQuestion_id(){
-//        return question_id;
-//    }
-//    public void setQuestion_id(int question_id){
+//    public void setQuestionByID(int question_id){
 //        this.question_id = question_id;
 //    }
 //    public String getQuestion_text(){

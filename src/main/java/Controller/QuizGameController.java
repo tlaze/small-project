@@ -20,6 +20,7 @@ public class QuizGameController {
         Javalin app = Javalin.create();
         app.get("/questions", this::getAllQuestionsHandler);
         app.get("/answers", this::getAllAnswersHandler);
+        app.get("questions/{question_id}", this::getQuestionByIDHandler);
         return app;
     }
 
@@ -29,10 +30,20 @@ public class QuizGameController {
         context.status(200);
     }
 
-    public void getAllAnswersHandler(Context context) throws JsonProcessingException{
+    public void getAllAnswersHandler(Context context){
         List<Answer> answers = answerService.getAllAnswers();
         context.json(answers);
         context.status(200);
+    }
+
+    public void getQuestionByIDHandler(Context context){
+        int questionID = Integer.parseInt(context.pathParam("question_id"));
+        Question getQuestion = questionService.getQuestionByID(questionID);
+
+        if(getQuestion != null){
+            context.json(getQuestion);
+            context.status(200);
+        }
     }
 }
 
