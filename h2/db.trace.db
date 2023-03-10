@@ -3493,3 +3493,76 @@ SELECT * WHERE answer_id = ? [42122-214]
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:936)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1080)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+2023-03-10 16:57:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a\000d\000aALTER TABLE question [*]CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id\000d\000a    ON UPDATE CASCADE\000d\000a    ON DELETE CASCADE\000d\000a\000d\000aINSERT INTO question(question_id, question_text) VALUES (1, 'question1')"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+
+
+
+ALTER TABLE question CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+
+INSERT INTO question(question_id, question_text) VALUES (1, 'question1') [42001-214]
+2023-03-10 16:58:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a\000d\000aALTER TABLE question [*]CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id\000d\000a ON UPDATE CASCADE\000d\000a ON DELETE CASCADE"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+
+
+
+ALTER TABLE question CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id
+ ON UPDATE CASCADE
+ ON DELETE CASCADE [42001-214]
+2023-03-10 16:59:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000aALTER TABLE question [*]CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+
+
+ALTER TABLE question CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE [42001-214]
+2023-03-10 17:00:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000aALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY [*]answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE"; expected "("; SQL statement:
+
+
+ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE [42001-214]
+2023-03-10 17:01:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;\000d\000a\000d\000aALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY [*]answer_id REFERENCES question\000d\000a    --ON UPDATE CASCADE\000d\000a    ON DELETE CASCADE\000d\000a-- get all questions\000d\000a--  delete all questions if  answered\000d\000a-- update certain questions\000d\000a\000d\000a    -- add questions with choices and answers for those questions\000d\000a\000d\000a-- do we need test cases?\000d\000a"; expected "("; SQL statement:
+
+
+--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY answer_id REFERENCES question
+    --ON UPDATE CASCADE
+    ON DELETE CASCADE
+-- get all questions
+--  delete all questions if  answered
+-- update certain questions
+
+    -- add questions with choices and answers for those questions
+
+-- do we need test cases?
+ [42001-214]
+2023-03-10 17:02:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;\000d\000a\000d\000aALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY [*]answer_id REFERENCES question ON DELETE CASCADE\000d\000a-- get all questions\000d\000a--  delete all questions if  answered\000d\000a-- update certain questions\000d\000a\000d\000a    -- add questions with choices and answers for those questions\000d\000a\000d\000a-- do we need test cases?\000d\000a"; expected "("; SQL statement:
+
+
+--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY answer_id REFERENCES question ON DELETE CASCADE
+-- get all questions
+--  delete all questions if  answered
+-- update certain questions
+
+    -- add questions with choices and answers for those questions
+
+-- do we need test cases?
+ [42001-214]
+2023-03-10 17:02:32 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000d\000a\000d\000a--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;\000d\000a\000d\000aALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY [*]answer_id REFERENCES question ON DELETE CASCADE"; expected "("; SQL statement:
+
+
+--ALTER TABLE question ADD CONSTRAINT question_id FOREIGN KEY answer_id REFERENCES question_id ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE answer ADD CONSTRAINT answer_id FOREIGN KEY answer_id REFERENCES question ON DELETE CASCADE [42001-214]
+2023-03-10 17:05:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM question WHERE question_id = ? [*]ON DELETE CASCADE"; SQL statement:
+DELETE FROM question WHERE question_id = ? ON DELETE CASCADE [42000-214]
+2023-03-10 17:06:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]FROM question WHERE question_id = ?"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP FROM question WHERE question_id = ? [42001-214]

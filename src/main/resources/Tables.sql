@@ -6,16 +6,16 @@ DROP TABLE if EXISTS answer;
 
 --table to store our questions
 CREATE TABLE question (
-    question_id int NOT NULL,
-    question_text varchar(255) NOT NULL,
+    question_id int,
+    question_text varchar(255),
     PRIMARY KEY (question_id)
     );
 
 CREATE TABLE answer (
-   answer_id int NOT NULL,
-   choice_list varchar(255) NOT NULL,
-   correct_answer bit NOT NULL,
-   FOREIGN KEY (answer_id) REFERENCES question(question_id)
+   answer_id int,
+   choice_list varchar(255),
+   correct_answer bit,
+   FOREIGN KEY (answer_id) REFERENCES question(question_id) ON DELETE CASCADE
     );
 
 
@@ -26,7 +26,7 @@ INSERT INTO question(question_id, question_text) VALUES (3, 'question3');
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer1', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer2', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer3', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1nswer4', true);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer4', true);
 
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer1', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer2', true);

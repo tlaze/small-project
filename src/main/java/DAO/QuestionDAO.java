@@ -74,13 +74,13 @@ public class QuestionDAO {
         return null;
     }
     public Question deleteQuestionByID(int question_id){
+
         Connection connection = ConnectionSingleton.getConnection();
         try{
-            String sql = "DELETE FROM question WHERE question_id =?";
+            String sql = "DELETE FROM question WHERE question_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setInt(1,question_id);
-
             preparedStatement.executeUpdate();
 
         }catch(SQLException e){

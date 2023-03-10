@@ -24,7 +24,7 @@ public class QuestionService {
         if (deleteQuestion_ID != null) {
             return deleteQuestion_ID;
         } else {
-            return null;
+            return questionDAO.deleteQuestionByID(question_id);
         }
     }
     public Question updateQuestionByID(int question_id, Question question){
