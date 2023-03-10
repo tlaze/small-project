@@ -19,37 +19,28 @@ CREATE TABLE answer (
    FOREIGN KEY (answer_id) REFERENCES question(question_id) ON DELETE CASCADE
     );
 
-INSERT INTO question(question_id, question_text) VALUES (1, 'question1');
-INSERT INTO question(question_id, question_text) VALUES (2, 'question2');
-INSERT INTO question(question_id, question_text) VALUES (3, 'question3');
-
-
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer1', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer2', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer3', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer4', true);
-
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer1', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer2', true);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer3', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer4', false);
-
-
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer1', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer2', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer3', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer4', true);
-
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer1', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer2', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer3', false);
-INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer4', true);
-
-
--- get all questions
---  delete all questions if  answered
--- update certain questions
-
-    -- add questions with choices and answers for those questions
-
--- do we need test cases?
+--INSERT INTO question(question_id, question_text) VALUES (1, 'question1');
+--INSERT INTO question(question_id, question_text) VALUES (2, 'question2');
+--INSERT INTO question(question_id, question_text) VALUES (3, 'question3');
+--
+--
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer1', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer2', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer3', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer4', true);
+--
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer1', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer2', true);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer3', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer4', false);
+--
+--
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer1', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer2', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer3', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer4', true);
+--
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer1', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer2', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer3', false);
+--INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer4', true);

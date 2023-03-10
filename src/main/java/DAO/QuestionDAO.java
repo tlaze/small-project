@@ -88,4 +88,25 @@ public class QuestionDAO {
         }
         return null;
     }
+    public Question createQuestion(Question question){
+        Connection connection = ConnectionSingleton.getConnection();
+        try{
+            String sql = "INSERT INTO question (question_id, question_text) VALUES (?,?)";
+
+            PreparedStatement preparedStatement =connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            preparedStatement.setInt(1, question.getQuestion_id());
+            preparedStatement.setString(2, question.getQuestion_text());
+
+            preparedStatement.executeUpdate();
+            ResultSet rs = preparedStatement.getGeneratedKeys();
+            if(rs.next()){
+                int generated_createQuestion_id = rs.getInt(1);
+                return new Question(generated_createQuestion_id, question.getQuestion_text());
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }
