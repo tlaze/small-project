@@ -11,6 +11,7 @@ CREATE TABLE question (
     PRIMARY KEY (question_id)
     );
 
+ --table to store our choices from our questions pool
 CREATE TABLE answer (
    answer_id int,
    choice_list varchar(255),
@@ -18,10 +19,10 @@ CREATE TABLE answer (
    FOREIGN KEY (answer_id) REFERENCES question(question_id) ON DELETE CASCADE
     );
 
-
 INSERT INTO question(question_id, question_text) VALUES (1, 'question1');
 INSERT INTO question(question_id, question_text) VALUES (2, 'question2');
 INSERT INTO question(question_id, question_text) VALUES (3, 'question3');
+
 
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer1', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (1, 'q1answer2', false);
@@ -33,10 +34,17 @@ INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer2
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer3', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (2, 'q2answer4', false);
 
+
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer1', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer2', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer3', false);
+INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'answer4', true);
+
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer1', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer2', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer3', false);
 INSERT INTO answer(answer_id, choice_list, correct_answer) VALUES (3, 'q3answer4', true);
+
 
 -- get all questions
 --  delete all questions if  answered

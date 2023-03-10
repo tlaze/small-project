@@ -86,7 +86,7 @@ public class QuizGameController {
             context.json(deletedQuestion);
             context.status(200);
         }
-        else{
+        else {
             context.status(200);
         }
     }
