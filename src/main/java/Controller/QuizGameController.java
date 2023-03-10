@@ -25,6 +25,7 @@ public class QuizGameController {
         app.get("answers/{answer_id}", this::getAnswersByIDHandler);
         app.put("/questions/{question_id}", this::updateQuestionByIDHandler);
         app.delete("/questions/{question_id}", this::getDeleteQuestionByIDHandler);
+        app.post("/questions/{question_id}", this::postQuestionHandler);
         return app;
     }
 
@@ -88,6 +89,21 @@ public class QuizGameController {
         }
         else {
             context.status(200);
+        }
+    }
+    public void postQuestionHandler(Context context) throws JsonProcessingException{
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        Question question = objectMapper.readValue(context.body(), Question.class);
+        Question addQuestion= questionService.addQuestion(question);
+
+        if(addQuestion!=null){
+            context.json(objectMapper.writeValueAsString(addQuestion));
+            context.status(200);
+        }
+
+        else{
+            context.status(400);
         }
     }
 }

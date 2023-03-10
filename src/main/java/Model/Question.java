@@ -9,8 +9,17 @@ public class Question {
         this.question_id = question_id;
         this.question_text = question_text;
     }
+    public int getQuestion_id(){
+        return question_id;
+    }
+    public void setQuestionByID(int question_id){
+        this.question_id = question_id;
+    }
     public String getQuestion_text(){
         return question_text;
+    }
+    public void setQuestion_text(String question_text){
+        this.question_text = question_text;
     }
     @Override
     public boolean equals(Object o){
