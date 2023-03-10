@@ -9,7 +9,6 @@ import Model.Question;
 
 public class QuestionService {
     public QuestionDAO questionDAO;
-
     public QuestionService(){
         questionDAO = new QuestionDAO();
     }
@@ -64,6 +63,9 @@ public class QuestionService {
         return questionDAO.createQuestion(question);
 
 
+    }
+    public Question updateQuestionByID(int questionID, Question question){
+        return questionDAO.updateQuestionByID(questionID, question);
     }
 
 }
