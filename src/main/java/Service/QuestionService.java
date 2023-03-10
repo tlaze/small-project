@@ -18,5 +18,4 @@ public class QuestionService {
     public Question getQuestionByID(int question){
         return questionDAO.getQuestionByID(question);
     }
-
 }
