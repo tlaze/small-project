@@ -21,8 +21,7 @@ public class QuestionDAO {
             while(rs.next()){
                 Question question = new Question(
                         rs.getInt("question_id"),
-                        rs.getString("question_text"),
-                        rs.getInt("answer_id")
+                        rs.getString("question_text")
                 );
                 questions.add(question);
             }
@@ -46,8 +45,7 @@ public class QuestionDAO {
             while(rs.next()){
                 Question questionByID = new Question(
                         rs.getInt("question_id"),
-                        rs.getString("question_text"),
-                        rs.getInt("answer_id")
+                        rs.getString("question_text")
                 );
                 return questionByID;
             }
