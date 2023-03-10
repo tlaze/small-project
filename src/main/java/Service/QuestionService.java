@@ -55,25 +55,6 @@ public class QuestionService {
 //
 //        return questionDAO.createQuestion(question);
 //    }
-//    public Question deleteQuestionID(int question_id) {
-//        Question deleteQuestion_ID = questionDAO.getQuestionByID(question_id);
-//        questionDAO.deleteQuestionByID(question_id);
-//
-//        if (deleteQuestion_ID != null) {
-//            return deleteQuestion_ID;
-//        } else {
-//            return questionDAO.deleteQuestionByID(question_id);
-//        }
-//    }
-//    public Question updateQuestionByID(int question_id, Question question){
-//        if(question.question_text!="" && question.question_text.length()<=255){
-//
-//            return questionDAO.updateQuestionByID(question_id, question);
-//        }
-//        else{
-//            return null;
-//        }
-//    }
 
 //    //if we can get it to work.
 //    public Question addQuestion(Question question){
@@ -93,9 +74,6 @@ public class QuestionService {
 //        return questionDAO.createQuestion(question);
 //
 //
-//    }
-//    public Question updateQuestionByID(int questionID, Question question){
-//        return questionDAO.updateQuestionByID(questionID, question);
 //    }
 
 }
