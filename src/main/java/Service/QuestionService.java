@@ -1,6 +1,7 @@
 package Service;
 import java.util.List;
 
+
 import java.util.Scanner;
 
 import DAO.QuestionDAO;
@@ -18,6 +19,7 @@ public class QuestionService {
     public List<Question> getAllQuestions(){
         return questionDAO.getAllQuestions();
     }
+
 
     public Question getQuestionByID (int question_id){
         return questionDAO.getQuestionByID(question_id);
@@ -62,10 +64,6 @@ public class QuestionService {
         return questionDAO.createQuestion(question);
 
 
-    }
-
-    public Question getQuestionByID(int question){
-        return questionDAO.getQuestionByID(question);
     }
 
 }

@@ -21,8 +21,7 @@ public class QuestionDAO {
             while(rs.next()){
                 Question question = new Question(
                         rs.getInt("question_id"),
-                        rs.getString("question_text"),
-                        rs.getInt("answer_id")
+                        rs.getString("question_text")
                 );
                 questions.add(question);
             }
@@ -46,14 +45,29 @@ public class QuestionDAO {
             while(rs.next()){
                 Question questionByID = new Question(
                         rs.getInt("question_id"),
-                        rs.getString("question_text"),
-                        rs.getInt("answer_id")
+                        rs.getString("question_text")
                 );
                 return questionByID;
             }
         }
         catch(SQLException e){
             System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Question deleteQuestionByID(int question_id){
+        Connection connection = ConnectionSingleton.getConnection();
+        try{
+            String sql = "DELETE FROM question WHERE question_id =?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1,question_id);
+
+            preparedStatement.executeUpdate();
+
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+
         }
         return null;
     }
