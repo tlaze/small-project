@@ -15,7 +15,7 @@ CREATE TABLE question (
 CREATE TABLE answer (
    answer_id int,
    choice_list varchar(255),
-   correct_answer bit,
+   correct_answer varchar(255),
    FOREIGN KEY (answer_id) REFERENCES question(question_id) ON DELETE CASCADE
     );
 
