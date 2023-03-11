@@ -53,7 +53,7 @@
 
   ## ScreenShot
 
-  ![Screenshot](Screenshot)
+  ![Screenshot](screenshot)
 
   ## Links
 
