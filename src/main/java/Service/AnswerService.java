@@ -2,6 +2,7 @@ package Service;
 import java.util.List;
 import DAO.AnswerDAO;
 import Model.Answer;
+import Model.Question;
 
 public class AnswerService {
     public AnswerDAO answerDAO;
@@ -16,6 +17,15 @@ public class AnswerService {
     }
     public List<Answer> getAnswersByID(int answers){
         return answerDAO.getAnswersByID(answers);
+    }
+    public Answer updateAnswerByID(int answerID, Answer answer){
+        if(answer.choice_list != "" && answer.choice_list.length() <= 255 && answer.correct_answer != "" && answer.correct_answer.length() <= 255){
+
+            return answerDAO.updateAnswerByID(answerID, answer);
+        }
+        else{
+            return null;
+        }
     }
     public Answer addAnswer(Answer answer){
 

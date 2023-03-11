@@ -1,6 +1,8 @@
 package DAO;
 import Model.Answer;
 import java.sql.*;
+
+import Model.Question;
 import Util.ConnectionSingleton;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,50 @@ public class AnswerDAO {
             }
             return allAnswers;
 
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Answer updateAnswerByID(int answerID, Answer answer){
+        Connection connection = ConnectionSingleton.getConnection();
+
+        try{
+            String sql = "UPDATE answer SET choice_list = ? WHERE answer_id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1, answer.getChoice_list());
+            ps.setInt(2, answerID);
+            ps.executeUpdate();
+
+            return getUpdatedAnswerByID(answerID);
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Answer getUpdatedAnswerByID(int answers){
+        Connection connection = ConnectionSingleton.getConnection();
+
+        try{
+            String sql = "SELECT * FROM answer WHERE answer_id = ?";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, answers);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                Answer answerByID = new Answer(
+                        rs.getInt("answer_id"),
+                        rs.getString("choice_list"),
+                        rs.getString("correct_answer")
+                );
+                return answerByID;
+            }
         }
         catch(SQLException e){
             System.out.println(e.getMessage());

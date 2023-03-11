@@ -37,8 +37,6 @@ public class QuestionService {
             return null;
         }
     }
-
-//    if we can get it to work.
     public Question addQuestion(Question question){
 
             if (question.question_text.isBlank()) {

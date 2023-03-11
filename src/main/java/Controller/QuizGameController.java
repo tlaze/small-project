@@ -24,6 +24,7 @@ public class QuizGameController {
         app.get("questions/{question_id}", this::getQuestionByIDHandler);
         app.get("answers/{answer_id}", this::getAnswersByIDHandler);
         app.put("/questions/{question_id}", this::updateQuestionByIDHandler);
+        app.put("/answers/{answer_id}", this::updateAnswerByIDHandler);
         app.delete("/questions/{question_id}", this::getDeleteQuestionByIDHandler);
         app.post("/questions/{question_id}", this::postQuestionHandler);
         app.post("answers/{answer_id}", this::postAnswerHandler);
@@ -77,6 +78,21 @@ public class QuizGameController {
             context.json(mapper.writeValueAsString(updateQuestion));
             context.status(200);
           }
+     }
+     public void updateAnswerByIDHandler(Context context) throws JsonProcessingException{
+        ObjectMapper mapper = new ObjectMapper();
+        Answer answer = mapper.readValue(context.body(), Answer.class);
+
+        int answerID = Integer.parseInt(context.pathParam("answer_id"));
+         Answer updateAnswer = answerService.updateAnswerByID(answerID, answer);
+
+         if(updateAnswer == null || answer.choice_list.length() > 255 || answer.choice_list =="" || answer.correct_answer.length() > 255 || answer.correct_answer ==""){
+             context.status(400);
+         }
+         else{
+             context.json(mapper.writeValueAsString(updateAnswer));
+             context.status(200);
+         }
      }
 
     public void getDeleteQuestionByIDHandler(Context context){
