@@ -2,8 +2,6 @@ package Service;
 import java.util.List;
 import DAO.AnswerDAO;
 import Model.Answer;
-import Model.Question;
-
 public class AnswerService {
     public AnswerDAO answerDAO;
     public AnswerService(){

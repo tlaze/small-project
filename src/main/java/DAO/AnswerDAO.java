@@ -1,14 +1,11 @@
 package DAO;
 import Model.Answer;
 import java.sql.*;
-
-import Model.Question;
 import Util.ConnectionSingleton;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AnswerDAO {
-
     public List<Answer> getAllAnswers(){
         Connection conn = ConnectionSingleton.getConnection();
         List<Answer> answers = new ArrayList<>();
