@@ -26,6 +26,7 @@ public class QuizGameController {
         app.put("/questions/{question_id}", this::updateQuestionByIDHandler);
         app.delete("/questions/{question_id}", this::getDeleteQuestionByIDHandler);
         app.post("/questions/{question_id}", this::postQuestionHandler);
+        app.post("answers/{answer_id}", this::postAnswerHandler);
         return app;
     }
 
@@ -106,7 +107,18 @@ public class QuizGameController {
             context.status(400);
         }
     }
-}
+    public void postAnswerHandler(Context context) throws JsonProcessingException{
 
-// pk is unique. answers belong to a question.
-//something in question
+        ObjectMapper mapper = new ObjectMapper();
+        Answer answer = mapper.readValue(context.body(), Answer.class);
+        Answer addAnswer = answerService.addAnswer(answer);
+
+        if(addAnswer != null){
+            context.json(mapper.writeValueAsString(addAnswer));
+            context.status(200);
+        }
+        else{
+            context.status(400);
+        }
+    }
+}

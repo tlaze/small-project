@@ -22,7 +22,7 @@ public class AnswerDAO {
                 Answer answer = new Answer(
                         rs.getInt("answer_id"),
                         rs.getString("choice_list"),
-                        rs.getBoolean("correct_answer")
+                        rs.getString("correct_answer")
                 );
                 answers.add(answer);
             }
@@ -48,12 +48,34 @@ public class AnswerDAO {
                 Answer answersByID = new Answer(
                         rs.getInt("answer_id"),
                         rs.getString("choice_list"),
-                        rs.getBoolean("correct_answer")
+                        rs.getString("correct_answer")
                 );
                 allAnswers.add(answersByID);
             }
             return allAnswers;
 
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    public Answer createAnswer(Answer answer){
+        Connection connection = ConnectionSingleton.getConnection();
+        try{
+            String sql = "Insert INTO answer (answer_id, choice_list, correct_answer) VALUES (?,?,?)";
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, answer.getAnswer_id());
+            ps.setString(2, answer.getChoice_list());
+            ps.setString(3, answer.getCorrect_answer());
+            ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if(rs.next()){
+                int answerID = rs.getInt(1);
+                return new Answer(answerID, answer.getChoice_list(), answer.getCorrect_answer());
+            }
         }
         catch(SQLException e){
             System.out.println(e.getMessage());

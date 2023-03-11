@@ -46,31 +46,11 @@ public class QuestionService {
                 return null;
 
             } else if (question.question_text.length() >= 255) {
-                System.out.println("question cannot be over 255 characters");
+                System.out.println("Question can't be over 255 characters");
                 return null;
             }
 
         return questionDAO.createQuestion(question);
     }
-
-//    //if we can get it to work.
-//    public Question addQuestion(Question question){
-//
-//            if (question.question_text.isBlank()) {
-//                System.out.println("The Question cannot be blank");
-//                return null;
-//
-//            } else if (question.question_text.length() >= 255) {
-//                System.out.println("question cannot be over 255 characters");
-//                return null;
-//
-//            } else if (question.answer_id <= 1) {
-//                System.out.println("must assign it to an answer ID");
-//            }
-//
-//        return questionDAO.createQuestion(question);
-//
-//
-//    }
 
 }

@@ -17,4 +17,15 @@ public class AnswerService {
     public List<Answer> getAnswersByID(int answers){
         return answerDAO.getAnswersByID(answers);
     }
+    public Answer addAnswer(Answer answer){
+
+        if(answer.choice_list.isBlank() || answer.correct_answer.isBlank()){
+            System.out.println("Text can't be blank");
+            return null;
+        }
+        else if(answer.choice_list.length() >= 255 || answer.correct_answer.length() >= 255){
+            System.out.println("Text can't be over 255 characters");
+        }
+        return answerDAO.createAnswer(answer);
+    }
 }
