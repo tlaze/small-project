@@ -47,8 +47,6 @@ public class QuestionService {
                 System.out.println("Question can't be over 255 characters");
                 return null;
             }
-
         return questionDAO.createQuestion(question);
     }
-
 }

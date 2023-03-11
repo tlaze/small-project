@@ -16,7 +16,7 @@ public class QuizGameController {
         this.questionService = new QuestionService();
         this.answerService = new AnswerService();
     }
-
+//Routes
     public Javalin startAPI(){
         Javalin app = Javalin.create();
         app.get("/questions", this::getAllQuestionsHandler);
@@ -51,6 +51,7 @@ public class QuizGameController {
             context.status(200);
         }
     }
+//    Uses an ArrayList so multiple answers can be stored per question
     public List<Answer> getAnswersByIDHandler(Context context){
         int answerID = Integer.parseInt(context.pathParam("answer_id"));
 
