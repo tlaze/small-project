@@ -1,5 +1,3 @@
-# Multiple-Choice-Database-Project
-
   ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
   
   # Multiple-Choice-Database-Project
